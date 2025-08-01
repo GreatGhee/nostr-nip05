@@ -175,6 +175,23 @@ p {
     opacity: 1;
 }
 
+.gallery-video {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    filter: grayscale(100%);
+    cursor: pointer;
+    position: relative;
+    transition: filter 0.5s ease, transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+.gallery-video:hover {
+    filter: grayscale(0%);
+    transform: scale(1.05) rotate(2deg);
+    box-shadow: 0 6px 12px rgba(214, 138, 74, 0.3);
+}
+
 .products-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
