@@ -77,13 +77,37 @@
         </section>
 
         <section class="chart-section">
-            <h2>Our Research</h2>
+            <h2>Helpful Charts</h2>
             <div class="chart-carousel">
                 <button class="chart-arrow left">&#10094;</button>
                 <img src="images/chart1.png" alt="Chart 1" class="chart-img" id="chart-display">
                 <button class="chart-arrow right">&#10095;</button>
             </div>
         </section>
+
+        <script>
+            const chartImages = ["images/chart1.png", "images/chart2.png", "images/chart3.jpg"];
+            let currentChart = 0;
+
+            const chartDisplay = document.getElementById('chart-display');
+            const chartLeft = document.querySelector('.chart-arrow.left');
+            const chartRight = document.querySelector('.chart-arrow.right');
+
+            function updateChart(index) {
+                chartDisplay.src = chartImages[index];
+            }
+
+            chartLeft.addEventListener('click', () => {
+                currentChart = (currentChart - 1 + chartImages.length) % chartImages.length;
+                updateChart(currentChart);
+            });
+
+            chartRight.addEventListener('click', () => {
+                currentChart = (currentChart + 1) % chartImages.length;
+                updateChart(currentChart);
+            });
+        </script>
+
 
         
         <section class="info-section health-benefits">
