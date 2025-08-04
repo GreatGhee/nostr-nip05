@@ -213,5 +213,27 @@
             }
         }
     </script>
+    <script>
+    document.querySelectorAll('.image-slider').forEach(slider => {
+        const img = slider.querySelector('img');
+        const originalSrc = img.src;
+        const altSrc = img.getAttribute('data-alt-src');
+        let showingAlt = false;
+
+        const toggleImage = () => {
+            if (showingAlt) {
+                img.src = originalSrc;
+                showingAlt = false;
+            } else {
+                img.src = altSrc;
+                showingAlt = true;
+            }
+        };
+
+        slider.querySelector('.left').addEventListener('click', toggleImage);
+        slider.querySelector('.right').addEventListener('click', toggleImage);
+    });
+    </script>
+
 </body>
 </html>
