@@ -77,13 +77,21 @@
         </section>
 
         <section class="chart-section">
-            <h2>Helpful Charts</h2>
-            <div class="chart-carousel">
-                <button class="chart-arrow left">&#10094;</button>
-                <img src="images/chart1.png" alt="Chart 1" class="chart-img" id="chart-display">
-                <button class="chart-arrow right">&#10095;</button>
-            </div>
+          <h2>Charts</h2>
+          <p>Explore our data charts below by swiping, clicking arrows, or tapping to enlarge.</p>
+          <div class="chart-carousel">
+            <button class="chart-arrow left">&#8592;</button>
+            <img src="images/chart1.png" alt="Chart 1" class="chart-img" id="chartDisplay">
+    <button class="chart-arrow right">&#8594;</button>
+          </div>
         </section>
+
+        <!-- Modal for enlarged view -->
+        <div id="chartModal" class="chart-modal">
+          <span class="chart-modal-close">&times;</span>
+          <img class="chart-modal-content" id="modalImage">
+        </div>
+
 
         <script>
             const chartImages = ["images/chart1.png", "images/chart2.png", "images/chart3.jpg"];
