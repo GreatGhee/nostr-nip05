@@ -192,7 +192,6 @@ p {
     box-shadow: 0 6px 12px rgba(214, 138, 74, 0.3);
 }
 
-<style>
 .chart-section {
     text-align: center;
     padding: 2rem;
@@ -241,7 +240,6 @@ p {
 .chart-arrow:hover {
     background: rgba(255, 255, 255, 1);
 }
-</style>
 
 
 .products-grid {
