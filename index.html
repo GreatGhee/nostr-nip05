@@ -9,6 +9,20 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!-- Modern Background Elements -->
+    <div class="background-overlay">
+        <div class="geometric-shape shape-1"></div>
+        <div class="geometric-shape shape-2"></div>
+        <div class="geometric-shape shape-3"></div>
+        <div class="floating-particles">
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+        </div>
+    </div>
+
     <header>
         <section class="hero">
             <img src="images/GreatGhee Website Logo.png" alt="GreatGhee Logo: Grass-Fed Jersey Cow Ghee, Handmade Small Batch" class="hero-logo">
@@ -34,7 +48,8 @@
                     <img src="images/16oz_grassfed_front.jpg" 
                          data-alt-src="images/16oz_grassfed_back.jpg" 
                          alt="16 oz jar of GreatGhee grass-fed Jersey cow ghee" 
-                         class="product-img">
+                         class="product-img gallery-img"
+                         loading="lazy">
                     <button class="arrow right">&#10095;</button>
                 </div>
                 <a href="https://pay.zaprite.com/pl_2qyFeeGMIx" target="_blank" rel="noopener noreferrer" class="buy-button">Buy Now (41,000⚡︎)</a>
@@ -48,7 +63,8 @@
                     <img src="images/16oz_regular_front.jpg" 
                          data-alt-src="images/16oz_regular_back.jpg" 
                          alt="16 oz jar of GreatGhee pasture-raised ghee" 
-                         class="product-img">
+                         class="product-img gallery-img"
+                         loading="lazy">
                     <button class="arrow right">&#10095;</button>
                 </div>
                 <a href="https://pay.zaprite.com/pl_hEKfCZ26ml" target="_blank" rel="noopener noreferrer" class="buy-button">Buy Now (21,000⚡︎)</a>
@@ -62,7 +78,8 @@
                     <img src="images/32oz_regular_front.jpg" 
                          data-alt-src="images/32oz_regular_back.jpg" 
                          alt="32 oz jar of GreatGhee pasture-raised ghee" 
-                         class="product-img">
+                         class="product-img gallery-img"
+                         loading="lazy">
                     <button class="arrow right">&#10095;</button>
                 </div>
                 <a href="https://pay.zaprite.com/pl_tM7JvnSk9V" target="_blank" rel="noopener noreferrer" class="buy-button">Buy Now (30,000⚡︎)</a>
@@ -80,34 +97,15 @@
             <h2>There is No Second Best Animal Fat to Cook With</h2>
             <div class="chart-carousel">
                 <button class="chart-arrow left">&#10094;</button>
-                <img src="images/chart1.png" alt="Chart 1" class="chart-img" id="chart-display">
+                <img src="images/chart1.png" 
+                     alt="Chart 1: Animal Fat Comparison" 
+                     class="chart-img gallery-img" 
+                     id="chart-display" 
+                     data-caption="Animal Fat Comparison Charts - Click to view fullscreen"
+                     loading="lazy">
                 <button class="chart-arrow right">&#10095;</button>
             </div>
         </section>
-
-        <script>
-            const chartImages = ["images/chart1.png", "images/chart2.png", "images/chart3.jpg"];
-            let currentChart = 0;
-
-            const chartDisplay = document.getElementById('chart-display');
-            const chartLeft = document.querySelector('.chart-arrow.left');
-            const chartRight = document.querySelector('.chart-arrow.right');
-
-            function updateChart(index) {
-                chartDisplay.src = chartImages[index];
-            }
-
-            chartLeft.addEventListener('click', () => {
-                currentChart = (currentChart - 1 + chartImages.length) % chartImages.length;
-                updateChart(currentChart);
-            });
-
-            chartRight.addEventListener('click', () => {
-                currentChart = (currentChart + 1) % chartImages.length;
-                updateChart(currentChart);
-            });
-        </script>
-
 
         
         <section class="info-section health-benefits">
@@ -149,11 +147,11 @@
                   <source src="images/ScreenRecording_07-23-2025 14-40-19_1.mp4" type="video/mp4">
                   Your browser does not support the video tag.
                 </video>
-                <img src="images/Avi Review.png" class="gallery-img">
-                <img src="images/Debstr Review.png" class="gallery-img">
-                <img src="images/Laser Review.png" class="gallery-img">
-                <img src="images/PDJ review.png" class="gallery-img">
-                <img src="images/Picture4.png" class="gallery-img">
+                <img src="images/Avi Review.png" class="gallery-img" data-caption="Avi Review" loading="lazy">
+                <img src="images/Debstr Review.png" class="gallery-img" data-caption="Debstr Review" loading="lazy">
+                <img src="images/Laser Review.png" class="gallery-img" data-caption="Laser Review" loading="lazy">
+                <img src="images/PDJ review.png" class="gallery-img" data-caption="PDJ Review" loading="lazy">
+                <img src="images/Picture4.png" class="gallery-img" data-caption="Picture 4" loading="lazy">
             </div>
         </section>
         
@@ -185,126 +183,322 @@
         <div id="caption"></div>
     </div>
 
+    <!-- Scripts -->
     <script>
-        // Get the modal
-        const modal = document.getElementById('lightbox');
+        // Chart carousel functionality and data
+        const chartImages = ["images/chart1.png", "images/chart2.png", "images/chart3.jpg"];
+        const chartCaptions = [
+            "Chart 1: Animal Fat Comparison",
+            "Chart 2: Nutritional Analysis", 
+            "Chart 3: Health Benefits Overview"
+        ];
+        let currentChart = 0;
 
-        // Get the image and caption elements
+        const chartDisplay = document.getElementById('chart-display');
+        const chartLeft = document.querySelector('.chart-arrow.left');
+        const chartRight = document.querySelector('.chart-arrow.right');
+
+        function updateChart(index) {
+            chartDisplay.src = chartImages[index];
+            chartDisplay.setAttribute('data-caption', chartCaptions[index]);
+        }
+
+        chartLeft.addEventListener('click', (e) => {
+            e.stopPropagation(); // Prevent lightbox from opening
+            currentChart = (currentChart - 1 + chartImages.length) % chartImages.length;
+            updateChart(currentChart);
+        });
+
+        chartRight.addEventListener('click', (e) => {
+            e.stopPropagation(); // Prevent lightbox from opening
+            currentChart = (currentChart + 1) % chartImages.length;
+            updateChart(currentChart);
+        });
+
+        // Image preloading to fix loading issues
+        function preloadImages() {
+            const imageUrls = [
+                ...chartImages,
+                'images/16oz_grassfed_front.jpg',
+                'images/16oz_grassfed_back.jpg',
+                'images/16oz_regular_front.jpg',
+                'images/16oz_regular_back.jpg',
+                'images/32oz_regular_front.jpg',
+                'images/32oz_regular_back.jpg'
+            ];
+
+            imageUrls.forEach(url => {
+                const img = new Image();
+                img.src = url;
+            });
+        }
+
+        // Call preload on page load
+        window.addEventListener('load', preloadImages);
+    </script>
+
+    <script>
+        // Product image slider functionality (non-fullscreen)
+        document.querySelectorAll('.image-slider').forEach(slider => {
+            const img = slider.querySelector('img');
+            const originalSrc = img.src;
+            const altSrc = img.getAttribute('data-alt-src');
+            let showingAlt = false;
+
+            function toggleImage() {
+                if (showingAlt) {
+                    img.src = originalSrc;
+                    showingAlt = false;
+                } else {
+                    img.src = altSrc;
+                    showingAlt = true;
+                }
+            }
+
+            // Click arrow support
+            slider.querySelector('.left').addEventListener('click', (e) => {
+                e.stopPropagation();
+                toggleImage();
+            });
+            
+            slider.querySelector('.right').addEventListener('click', (e) => {
+                e.stopPropagation();
+                toggleImage();
+            });
+
+            // Touch swipe support
+            let touchStartX = 0;
+            let touchEndX = 0;
+
+            img.addEventListener('touchstart', (e) => {
+                touchStartX = e.changedTouches[0].screenX;
+            });
+
+            img.addEventListener('touchend', (e) => {
+                touchEndX = e.changedTouches[0].screenX;
+                handleSwipe();
+            });
+
+            function handleSwipe() {
+                const deltaX = touchEndX - touchStartX;
+                if (Math.abs(deltaX) > 50) {
+                    e.stopPropagation();
+                    toggleImage();
+                }
+            }
+        });
+    </script>
+
+    <script>
+        // Enhanced lightbox functionality with chart, gallery, and product image support
+        const modal = document.getElementById('lightbox');
         const modalImg = document.getElementById("lightbox-img");
         const captionText = document.getElementById("caption");
+        const closeBtn = document.querySelector('.close');
+        const prevBtn = document.querySelector('.prev');
+        const nextBtn = document.querySelector('.next');
+
+        let currentImageData = null;
+        let isProductImage = false;
+        let isChartImage = false;
+        let productArrows = null;
 
         // Get all gallery images
         const images = document.querySelectorAll('.gallery-img');
         let currentIndex = 0;
 
-        // Function to open modal with selected image
-        function openModal(index) {
+        function openModal(index, productData = null, chartData = null) {
             currentIndex = index;
-            updateModal();
+            isProductImage = !!productData;
+            isChartImage = !!chartData;
+            currentImageData = productData || chartData;
+            
+            // Clean up any existing product arrows
+            if (productArrows) {
+                productArrows.left?.remove();
+                productArrows.right?.remove();
+                productArrows = null;
+            }
+            
+            if (isProductImage) {
+                setupProductLightbox();
+                // Hide regular arrows for product images
+                prevBtn.style.display = 'none';
+                nextBtn.style.display = 'none';
+            } else if (isChartImage) {
+                setupChartLightbox();
+                // Show regular arrows for chart navigation
+                prevBtn.style.display = 'block';
+                nextBtn.style.display = 'block';
+            } else {
+                updateModal();
+                // Show regular arrows for gallery images
+                prevBtn.style.display = 'block';
+                nextBtn.style.display = 'block';
+            }
+            
             modal.style.display = "flex";
-            document.body.style.overflow = 'hidden'; // Prevent scrolling behind modal
+            document.body.style.overflow = 'hidden';
         }
 
-        // Function to update modal content
+        function setupProductLightbox() {
+            modalImg.src = currentImageData.currentSrc;
+            captionText.innerHTML = currentImageData.alt;
+            
+            // Create product-specific arrows
+            const leftArrow = document.createElement('button');
+            leftArrow.className = 'product-arrow left';
+            leftArrow.innerHTML = '&#10094;';
+            leftArrow.onclick = toggleProductImage;
+            
+            const rightArrow = document.createElement('button');
+            rightArrow.className = 'product-arrow right';
+            rightArrow.innerHTML = '&#10095;';
+            rightArrow.onclick = toggleProductImage;
+            
+            modal.appendChild(leftArrow);
+            modal.appendChild(rightArrow);
+            
+            productArrows = { left: leftArrow, right: rightArrow };
+        }
+
+        function setupChartLightbox() {
+            modalImg.src = currentImageData.currentSrc;
+            captionText.innerHTML = currentImageData.caption;
+        }
+
+        function toggleProductImage() {
+            if (currentImageData.showingAlt) {
+                modalImg.src = currentImageData.originalSrc;
+                currentImageData.showingAlt = false;
+                currentImageData.currentSrc = currentImageData.originalSrc;
+            } else {
+                modalImg.src = currentImageData.altSrc;
+                currentImageData.showingAlt = true;
+                currentImageData.currentSrc = currentImageData.altSrc;
+            }
+        }
+
         function updateModal() {
             modalImg.src = images[currentIndex].src;
-            captionText.innerHTML = images[currentIndex].getAttribute('data-caption');
+            captionText.innerHTML = images[currentIndex].getAttribute('data-caption') || '';
         }
 
-        // Close the modal
-        const close = document.querySelector('.close');
-        close.onclick = function() {
+        function navigateChart(direction) {
+            let newIndex = direction === 'next' 
+                ? (currentImageData.chartIndex + 1) % chartImages.length
+                : (currentImageData.chartIndex - 1 + chartImages.length) % chartImages.length;
+            
+            currentImageData.chartIndex = newIndex;
+            currentImageData.currentSrc = chartImages[newIndex];
+            currentImageData.caption = chartCaptions[newIndex];
+            
+            modalImg.src = currentImageData.currentSrc;
+            captionText.innerHTML = currentImageData.caption;
+        }
+
+        function closeModal() {
             modal.style.display = "none";
-            document.body.style.overflow = ''; // Restore scrolling
+            document.body.style.overflow = '';
+            
+            // Clean up product arrows
+            if (productArrows) {
+                productArrows.left?.remove();
+                productArrows.right?.remove();
+                productArrows = null;
+            }
+            
+            // Reset arrow visibility
+            prevBtn.style.display = 'block';
+            nextBtn.style.display = 'block';
         }
 
-        // Previous image
-        const prev = document.querySelector('.prev');
-        prev.onclick = function() {
-            currentIndex = (currentIndex > 0) ? currentIndex - 1 : images.length - 1;
-            updateModal();
+        // Close modal
+        closeBtn.onclick = closeModal;
+
+        // Navigation for gallery and chart images
+        prevBtn.onclick = function() {
+            if (isChartImage) {
+                navigateChart('prev');
+            } else if (!isProductImage) {
+                currentIndex = (currentIndex > 0) ? currentIndex - 1 : images.length - 1;
+                updateModal();
+            }
         }
 
-        // Next image
-        const next = document.querySelector('.next');
-        next.onclick = function() {
-            currentIndex = (currentIndex < images.length - 1) ? currentIndex + 1 : 0;
-            updateModal();
+        nextBtn.onclick = function() {
+            if (isChartImage) {
+                navigateChart('next');
+            } else if (!isProductImage) {
+                currentIndex = (currentIndex < images.length - 1) ? currentIndex + 1 : 0;
+                updateModal();
+            }
         }
 
-        // Add click event to each image
+        // Add click events to all gallery images
         images.forEach((img, index) => {
             img.onclick = function() {
-                openModal(index);
+                // Check if it's a chart image
+                if (img.id === 'chart-display') {
+                    const chartData = {
+                        currentSrc: img.src,
+                        caption: img.getAttribute('data-caption'),
+                        chartIndex: currentChart
+                    };
+                    openModal(index, null, chartData);
+                }
+                // Check if it's a product image
+                else if (img.closest('.image-slider') && img.classList.contains('product-img')) {
+                    const productData = {
+                        originalSrc: img.src,
+                        altSrc: img.getAttribute('data-alt-src'),
+                        currentSrc: img.src,
+                        alt: img.alt,
+                        showingAlt: false
+                    };
+                    openModal(index, productData);
+                }
+                // Regular gallery image
+                else {
+                    openModal(index);
+                }
             }
         });
 
-        // Close modal when clicking outside the image
+        // Close when clicking outside
         window.onclick = function(event) {
             if (event.target == modal) {
-                modal.style.display = "none";
-                document.body.style.overflow = ''; // Restore scrolling
+                closeModal();
             }
         }
-    </script>
-    <script>
-    document.querySelectorAll('.image-slider').forEach(slider => {
-        const img = slider.querySelector('img');
-        const originalSrc = img.src;
-        const altSrc = img.getAttribute('data-alt-src');
-        let showingAlt = false;
 
-        const toggleImage = () => {
-            if (showingAlt) {
-                img.src = originalSrc;
-                showingAlt = false;
-            } else {
-                img.src = altSrc;
-                showingAlt = true;
+        // Click image to toggle for product images
+        modalImg.onclick = function() {
+            if (isProductImage) {
+                toggleProductImage();
             }
-        };
-
-        slider.querySelector('.left').addEventListener('click', toggleImage);
-        slider.querySelector('.right').addEventListener('click', toggleImage);
-    });
-    </script>
-
-    <script>
-    document.querySelectorAll('.image-slider').forEach(slider => {
-        const img = slider.querySelector('img');
-        const originalSrc = img.src;
-        const altSrc = img.getAttribute('data-alt-src');
-        let showingAlt = false;
-
-        function toggleImage() {
-            img.src = showingAlt ? originalSrc : altSrc;
-            showingAlt = !showingAlt;
         }
 
-        // Click arrow support
-        slider.querySelector('.left').addEventListener('click', toggleImage);
-        slider.querySelector('.right').addEventListener('click', toggleImage);
-
-        // Touch swipe support
-        let touchStartX = 0;
-        let touchEndX = 0;
-
-        img.addEventListener('touchstart', (e) => {
-            touchStartX = e.changedTouches[0].screenX;
+        // Keyboard support
+        document.addEventListener('keydown', function(event) {
+            if (modal.style.display === "flex") {
+                if (event.key === 'Escape') {
+                    closeModal();
+                } else if (event.key === 'ArrowLeft') {
+                    if (isProductImage) {
+                        toggleProductImage();
+                    } else {
+                        prevBtn.click();
+                    }
+                } else if (event.key === 'ArrowRight') {
+                    if (isProductImage) {
+                        toggleProductImage();
+                    } else {
+                        nextBtn.click();
+                    }
+                }
+            }
         });
-
-        img.addEventListener('touchend', (e) => {
-            touchEndX = e.changedTouches[0].screenX;
-            handleSwipe();
-        });
-
-        function handleSwipe() {
-            const deltaX = touchEndX - touchStartX;
-            if (Math.abs(deltaX) > 50) {
-                toggleImage();
-            }
-        }
-    });
     </script>
 
 </body>
