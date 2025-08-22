@@ -943,4 +943,27 @@ footer a:hover {
     border-radius: 8px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
+/* Button styling */
+.bitcoin-button {
+    background-color: #f7931a;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 24px;
+    border-radius: 10px;
+    cursor: pointer;
+    margin: 10px 0;
+    text-decoration: none;
+    display: inline-block;
+}
+.bitcoin-button:hover {
+    background-color: #e67e22;
+}
 
+/* SATS price styling */
+.sats-price {
+    margin: 10px 0;
+    font-size: 24px;
+    padding: 0;
+    color: #f7931a; /* Bitcoin orange to match theme */
+}
