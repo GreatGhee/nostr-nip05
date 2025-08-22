@@ -52,8 +52,7 @@
                          loading="lazy">
                     <button class="arrow right">&#10095;</button>
                 </div>
-                <a href="https://pay.zaprite.com/pl_2qyFeeGMIx" target="_blank" rel="noopener noreferrer" class="bitcoin-button">Pay with Bitcoin</a>
-                <div class="sats-price" id="satsPriceGrass16">Fetching price...</div>
+                <a href="https://pay.zaprite.com/pl_2qyFeeGMIx" target="_blank" rel="noopener noreferrer" class="buy-button" id="buyButtonGrass16">Buy Now ($42)</a>
             </div>
 
             <!-- Product 2: 16oz Regular -->
@@ -68,8 +67,7 @@
                          loading="lazy">
                     <button class="arrow right">&#10095;</button>
                 </div>
-                <a href="https://pay.zaprite.com/pl_hEKfCZ26ml" target="_blank" rel="noopener noreferrer" class="bitcoin-button">Pay with Bitcoin</a>
-                <div class="sats-price" id="satsPriceReg16">Fetching price...</div>
+                <a href="https://pay.zaprite.com/pl_hEKfCZ26ml" target="_blank" rel="noopener noreferrer" class="buy-button" id="buyButtonReg16">Buy Now ($24)</a>
             </div>
 
             <!-- Product 3: 32oz Regular -->
@@ -84,8 +82,7 @@
                          loading="lazy">
                     <button class="arrow right">&#10095;</button>
                 </div>
-                <a href="https://pay.zaprite.com/pl_tM7JvnSk9V" target="_blank" rel="noopener noreferrer" class="bitcoin-button">Pay with Bitcoin</a>
-                <div class="sats-price" id="satsPriceReg32">Fetching price...</div>
+                <a href="https://pay.zaprite.com/pl_tM7JvnSk9V" target="_blank" rel="noopener noreferrer" class="buy-button" id="buyButtonReg32">Buy Now ($32)</a>
             </div>
     </div>
 </section>
@@ -206,31 +203,28 @@
 
     <!-- Scripts -->
     <script>
-        // Function to fetch Bitcoin price and convert USD prices to satoshis
+        // Function to fetch Bitcoin price and update button texts with USD and satoshis
         async function fetchSatoshiPrices() {
             try {
                 const response = await fetch('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd');
                 const data = await response.json();
                 const btcPriceUSD = data.bitcoin.usd;
-                // Product prices in USD
-                const pricesUSD = {
-                    grass16: 42,
-                    reg16: 24,
-                    reg32: 32
-                };
-                // Calculate and update each
-                Object.keys(pricesUSD).forEach(key => {
-                    const price = pricesUSD[key];
-                    const priceInSatoshis = (price / btcPriceUSD) * 100_000_000;
-                    const formattedPrice = `${Math.round(priceInSatoshis).toLocaleString()} SATS`;
-                    document.getElementById(`satsPrice${key.charAt(0).toUpperCase() + key.slice(1)}`).textContent = formattedPrice;
+                // Product prices in USD and corresponding button IDs
+                const products = [
+                    { usd: 42, id: 'buyButtonGrass16' },
+                    { usd: 24, id: 'buyButtonReg16' },
+                    { usd: 32, id: 'buyButtonReg32' }
+                ];
+                // Calculate and update each button
+                products.forEach(product => {
+                    const priceInSatoshis = (product.usd / btcPriceUSD) * 100_000_000;
+                    const formattedSats = `${Math.round(priceInSatoshis).toLocaleString()} SATS`;
+                    const button = document.getElementById(product.id);
+                    button.textContent = `Buy Now ($${product.usd} / ${formattedSats})`;
                 });
             } catch (error) {
                 console.error('Error fetching Bitcoin price:', error);
-                // Update all to error message
-                ['satsPriceGrass16', 'satsPriceReg16', 'satsPriceReg32'].forEach(id => {
-                    document.getElementById(id).textContent = 'Error fetching price';
-                });
+                // Optionally, leave buttons as is or add error indicator
             }
         }
         // Update the prices initially and then every 60 seconds
