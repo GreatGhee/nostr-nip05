@@ -533,6 +533,17 @@ p {
     transform: translateY(-2px);
     box-shadow: 0 8px 20px rgba(214, 138, 74, 0.4);
 }
+.buy-button.disabled {
+    background: linear-gradient(45deg, #808080, #696969);
+    cursor: not-allowed;
+    box-shadow: none;
+    transform: none;
+}
+.buy-button.disabled:hover {
+    background: linear-gradient(45deg, #808080, #696969);
+    transform: none;
+    box-shadow: none;
+}
 .note {
     font-style: italic;
     font-size: 0.9rem;
@@ -862,4 +873,51 @@ footer a:hover {
     font-size: 24px;
     padding: 0;
     color: #f7931a; /* Bitcoin orange to match theme */
+}
+
+/* Product Select Styling */
+.product-select {
+    background: linear-gradient(45deg, rgba(0,0,0,0.8), rgba(26,26,26,0.8));
+    color: #f5f0e1;
+    border: 1px solid rgba(214, 138, 74, 0.3);
+    border-radius: 25px;
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    width: 100%;
+    margin-bottom: 1rem;
+    cursor: pointer;
+    font-family: monospace;
+    appearance: none;
+    -webkit-appearance: none;
+    background-image: url('data:image/svg+xml;utf8,<svg fill="%23d68a4a" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/><path d="M0 0h24v24H0z" fill="none"/></svg>');
+    background-repeat: no-repeat;
+    background-position-x: 98%;
+    background-position-y: 50%;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.product-select:hover {
+    border-color: rgba(214, 138, 74, 0.5);
+    box-shadow: 0 5px 15px rgba(214, 138, 74, 0.2);
+}
+
+.product-select option {
+    background: #1a1a1a;
+    color: #f5f0e1;
+    font-family: monospace;
+}
+
+/* Image Placeholder */
+.image-placeholder {
+    height: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(214, 138, 74, 0.05);
+    border-radius: 15px;
+    font-size: 1.5rem;
+    color: #d68a4a;
+    border: 1px dashed rgba(214, 138, 74, 0.3);
+    margin-bottom: 1rem;
 }
