@@ -29,7 +29,7 @@
             <img src="images/new_favicon.jpg" alt="GreatGhee Logo: Grass-Fed Jersey Cow Ghee, Handmade Small Batch" class="hero-logo">
             <div class="hero-text">
                 <h1>GREATGHEE</h1>
-                <p>Sourced and handmade in small batches from regenerative dairy farms in the Virginia Shenandoah Valley, United States.</p>
+                <p>Sourced and produced in small batches from regenerative dairy farms in the Virginia Shenandoah Valley, United States.</p>
             </div>
         </section>
     </header>
@@ -38,52 +38,59 @@
 
     <section class="info-section products">
         <h2>Our Products</h2>
-        <p>Choose from either our premium 100% grass-fed, pasture-raised ghee or our regular pasture-raised ghee and pay seamlessly with Bitcoin via Zaprite. All prices include free shipping.</p>
+        <p>Choose from either our regular pasture-raised ghee or premium 100% grass-fed, pasture-raised ghee and pay seamlessly with Bitcoin via Zaprite. All prices include free shipping.</p>
             <div class="products-grid">
 
-            <!-- Product 1: 16oz Grass-Fed -->
+            <!-- Product 1: Regular Pasture-Raised Ghee -->
             <div class="product-card">
-                <h3>16oz Jar (100% Grass-Fed, Pasture-Raised) (OUT OF STOCK)</h3>
-                <div class="image-slider" data-index="0">
-                    <button class="arrow left">&#10094;</button>
-                    <img src="images/16oz_grassfed_front.jpg" 
-                         data-alt-src="images/16oz_grassfed_back.jpg" 
-                         alt="16 oz jar of GreatGhee grass-fed Jersey cow ghee" 
-                         class="product-img gallery-img"
-                         loading="lazy">
-                    <button class="arrow right">&#10095;</button>
-                </div>
-                <a href="https://pay.zaprite.com/pl_2qyFeeGMIx" target="_blank" rel="noopener noreferrer" class="buy-button" id="buyButtonGrass16">Buy Now ($42)</a>
-            </div>
-
-            <!-- Product 2: 16oz Regular -->
-            <div class="product-card">
-                <h3>16oz Jar (Pasture-Raised)</h3>
-                <div class="image-slider" data-index="1">
+                <h3>Regular Pasture-Raised Ghee</h3>
+                <div class="image-slider" id="sliderReg" data-index="0">
                     <button class="arrow left">&#10094;</button>
                     <img src="images/16oz_regular_front.jpg" 
                          data-alt-src="images/16oz_regular_back.jpg" 
-                         alt="16 oz jar of GreatGhee pasture-raised ghee" 
+                         alt="Jar of GreatGhee pasture-raised ghee" 
                          class="product-img gallery-img"
                          loading="lazy">
                     <button class="arrow right">&#10095;</button>
                 </div>
-                <a href="https://pay.zaprite.com/pl_hEKfCZ26ml" target="_blank" rel="noopener noreferrer" class="buy-button" id="buyButtonReg16">Buy Now ($26)</a>
+                <select id="selectReg" class="product-select">
+                    <option data-price="18" data-link="https://pay.zaprite.com/pl_vCTaUnsSX8" data-front="images/16oz_regular_front.jpg" data-back="images/16oz_regular_back.jpg">8 oz</option>
+                    <option selected data-price="27" data-link="https://pay.zaprite.com/pl_hEKfCZ26ml" data-front="images/16oz_regular_front.jpg" data-back="images/16oz_regular_back.jpg">16 oz</option>
+                    <option data-price="41" data-link="https://pay.zaprite.com/pl_tM7JvnSk9V" data-front="images/32oz_regular_front.jpg" data-back="images/32oz_regular_back.jpg">32 oz</option>
+                </select>
+                <a href="https://pay.zaprite.com/pl_hEKfCZ26ml" target="_blank" rel="noopener noreferrer" class="buy-button" id="buyButtonReg">Buy Now</a>
             </div>
 
-            <!-- Product 3: 32oz Regular -->
+            <!-- Product 2: Placeholder for Liver Crisps -->
+            <!-- <div class="product-card"> -->
+                <!-- <h3>Liver Crisps</h3> -->
+                <!-- <div class="image-placeholder">Coming Soon</div> -->
+                <!-- <select id="selectLiver" class="product-select"> -->
+                    <!-- <option selected data-price="15" data-link="#">1-pack</option> -->
+                    <!-- <option data-price="40" data-link="#">3-pack</option> -->
+                    <!-- <option data-price="70" data-link="#">6-pack</option> -->
+                <!-- </select> -->
+                <!-- <a href="#" target="_blank" rel="noopener noreferrer" class="buy-button disabled" id="buyButtonLiver">Coming Soon</a> -->
+            <!-- </div> -->
+
+            <!-- Product 3: 100% Grass-Fed Pasture-Raised Ghee -->
             <div class="product-card">
-                <h3>32oz Jar (Pasture-Raised)</h3>
-                <div class="image-slider" data-index="2">
+                <h3>100% Grass-Fed Pasture-Raised Ghee</h3>
+                <div class="image-slider" id="sliderGrass" data-index="1">
                     <button class="arrow left">&#10094;</button>
-                    <img src="images/32oz_regular_front.jpg" 
-                         data-alt-src="images/32oz_regular_back.jpg" 
-                         alt="32 oz jar of GreatGhee pasture-raised ghee" 
+                    <img src="images/16oz_grassfed_front.jpg" 
+                         data-alt-src="images/16oz_grassfed_back.jpg" 
+                         alt="Jar of GreatGhee grass-fed Jersey cow ghee" 
                          class="product-img gallery-img"
                          loading="lazy">
                     <button class="arrow right">&#10095;</button>
                 </div>
-                <a href="https://pay.zaprite.com/pl_tM7JvnSk9V" target="_blank" rel="noopener noreferrer" class="buy-button" id="buyButtonReg32">Buy Now ($38)</a>
+                <select id="selectGrass" class="product-select">
+                    <option data-price="26" data-link="https://pay.zaprite.com/pl_HPOj74qYDj" data-front="images/16oz_grassfed_front.jpg" data-back="images/16oz_grassfed_back.jpg">8 oz</option>
+                    <option selected data-price="41" data-link="https://pay.zaprite.com/pl_2qyFeeGMIx" data-front="images/16oz_grassfed_front.jpg" data-back="images/16oz_grassfed_back.jpg">16 oz</option>
+                    <!-- <option data-price="60" data-link="#" data-front="images/16oz_grassfed_front.jpg" data-back="images/16oz_grassfed_back.jpg">32 oz</option> -->
+                </select>
+                <a href="https://pay.zaprite.com/pl_2qyFeeGMIx" target="_blank" rel="noopener noreferrer" class="buy-button" id="buyButtonGrass">Buy Now</a>
             </div>
     </div>
 </section>
@@ -208,33 +215,115 @@
 
     <!-- Scripts -->
     <script>
-        // Function to fetch Bitcoin price and update button texts with USD and satoshis
+        let btcPriceUSD = 0;
+
+        const products = [
+            {
+                selectId: 'selectReg',
+                buttonId: 'buyButtonReg',
+                imageSliderId: 'sliderReg',
+                options: [
+                    { size: '8 oz', price: 18, front: 'images/16oz_regular_front.jpg', back: 'images/16oz_regular_back.jpg' },
+                    { size: '16 oz', price: 27, front: 'images/16oz_regular_front.jpg', back: 'images/16oz_regular_back.jpg' },
+                    { size: '32 oz', price: 41, front: 'images/32oz_regular_front.jpg', back: 'images/32oz_regular_back.jpg' }
+                ]
+            },
+            {
+                selectId: 'selectLiver',
+                buttonId: 'buyButtonLiver',
+                options: [
+                    { size: '1-pack', price: 15 },
+                    { size: '3-pack', price: 40 },
+                    { size: '6-pack', price: 70 }
+                ]
+            },
+            {
+                selectId: 'selectGrass',
+                buttonId: 'buyButtonGrass',
+                imageSliderId: 'sliderGrass',
+                options: [
+                    { size: '8 oz', price: 26, front: 'images/16oz_grassfed_front.jpg', back: 'images/16oz_grassfed_back.jpg' },
+                    { size: '16 oz', price: 41, front: 'images/16oz_grassfed_front.jpg', back: 'images/16oz_grassfed_back.jpg' },
+                    { size: '32 oz', price: 60, front: 'images/16oz_grassfed_front.jpg', back: 'images/16oz_grassfed_back.jpg' }
+                ]
+            }
+        ];
+
         async function fetchSatoshiPrices() {
             try {
                 const response = await fetch('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd');
                 const data = await response.json();
-                const btcPriceUSD = data.bitcoin.usd;
-                // Product prices in USD and corresponding button IDs
-                const products = [
-                    { usd: 42, id: 'buyButtonGrass16' },
-                    { usd: 26, id: 'buyButtonReg16' },
-                    { usd: 38, id: 'buyButtonReg32' }
-                ];
-                // Calculate and update each button
-                products.forEach(product => {
-                    const priceInSatoshis = (product.usd / btcPriceUSD) * 100_000_000;
-                    const formattedSats = `${Math.round(priceInSatoshis).toLocaleString()} SATS`;
-                    const button = document.getElementById(product.id);
-                    button.textContent = `Buy Now ($${product.usd} / ${formattedSats})`;
-                });
+                btcPriceUSD = data.bitcoin.usd;
+                updateAllProducts();
             } catch (error) {
                 console.error('Error fetching Bitcoin price:', error);
-                // Optionally, leave buttons as is or add error indicator
             }
         }
+
+        function updateAllProducts() {
+            products.forEach(product => {
+                const select = document.getElementById(product.selectId);
+                if (!select) return;
+
+                product.options.forEach((opt, idx) => {
+                    const sats = btcPriceUSD ? Math.round((opt.price / btcPriceUSD) * 100000000) : 0;
+                    const formattedSats = sats.toLocaleString() || 'N/A';
+                    const left = opt.size.padEnd(10, ' ');
+                    const right = `$${opt.price} / ${formattedSats} sats`;
+                    select.options[idx].text = left + right;
+                });
+
+                updateButton(product);
+            });
+        }
+
+        function updateButton(product) {
+            const select = document.getElementById(product.selectId);
+            const button = document.getElementById(product.buttonId);
+            if (!select || !button) return;
+
+            const idx = select.selectedIndex;
+            const link = select.options[idx].dataset.link;
+
+            if (link === '#') {
+                button.textContent = 'Coming Soon';
+                button.href = '#';
+                button.classList.add('disabled');
+            } else {
+                // Only show "Buy Now" without price information
+                button.textContent = 'Buy Now';
+                button.href = link;
+                button.classList.remove('disabled');
+            }
+
+            // Update image if applicable
+            if (product.imageSliderId) {
+                const slider = document.getElementById(product.imageSliderId);
+                if (slider) {
+                    const img = slider.querySelector('img');
+                    const opt = product.options[idx];
+                    if (opt.front) {
+                        img.src = opt.front;
+                        img.dataset.altSrc = opt.back;
+                    }
+                }
+            }
+        }
+
         // Update the prices initially and then every 60 seconds
         fetchSatoshiPrices();
         setInterval(fetchSatoshiPrices, 60000);
+
+        // Add event listeners for select changes
+        window.addEventListener('load', () => {
+            products.forEach(product => {
+                const select = document.getElementById(product.selectId);
+                if (select) {
+                    select.addEventListener('change', () => updateButton(product));
+                }
+            });
+            preloadImages();
+        });
     </script>
 
     <script>
@@ -285,9 +374,6 @@
                 img.src = url;
             });
         }
-
-        // Call preload on page load
-        window.addEventListener('load', preloadImages);
     </script>
 
     <script>
