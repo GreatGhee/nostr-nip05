@@ -58,7 +58,7 @@
                     <option selected data-price="26" data-link="https://pay.zaprite.com/pl_hEKfCZ26ml" data-front="images/16oz_regular_front.jpg" data-back="images/16oz_regular_back.jpg">16 oz</option>
                     <option data-price="38" data-link="https://pay.zaprite.com/pl_tM7JvnSk9V" data-front="images/32oz_regular_front.jpg" data-back="images/32oz_regular_back.jpg">32 oz</option>
                 </select>
-                <a href="https://pay.zaprite.com/pl_hEKfCZ26ml" target="_blank" rel="noopener noreferrer" class="buy-button" id="buyButtonReg">Buy Now ($26)</a>
+                <a href="https://pay.zaprite.com/pl_hEKfCZ26ml" target="_blank" rel="noopener noreferrer" class="buy-button" id="buyButtonReg">Buy Now</a>
             </div>
 
             <!-- Product 2: Placeholder for Liver Crisps -->
@@ -90,7 +90,7 @@
                     <option selected data-price="42" data-link="https://pay.zaprite.com/pl_2qyFeeGMIx" data-front="images/16oz_grassfed_front.jpg" data-back="images/16oz_grassfed_back.jpg">16 oz</option>
                     <option data-price="60" data-link="#" data-front="images/16oz_grassfed_front.jpg" data-back="images/16oz_grassfed_back.jpg">32 oz</option>
                 </select>
-                <a href="https://pay.zaprite.com/pl_2qyFeeGMIx" target="_blank" rel="noopener noreferrer" class="buy-button" id="buyButtonGrass">Buy Now ($42)</a>
+                <a href="https://pay.zaprite.com/pl_2qyFeeGMIx" target="_blank" rel="noopener noreferrer" class="buy-button" id="buyButtonGrass">Buy Now</a>
             </div>
     </div>
 </section>
@@ -290,10 +290,8 @@
                 button.href = '#';
                 button.classList.add('disabled');
             } else {
-                const opt = product.options[idx];
-                const sats = btcPriceUSD ? Math.round((opt.price / btcPriceUSD) * 100000000) : 0;
-                const formattedSats = sats.toLocaleString() || 'N/A';
-                button.textContent = `Buy Now ($${opt.price} / ${formattedSats} sats)`;
+                // Only show "Buy Now" without price information
+                button.textContent = 'Buy Now';
                 button.href = link;
                 button.classList.remove('disabled');
             }
