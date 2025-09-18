@@ -64,7 +64,7 @@
             <!-- Product 2: Placeholder for Liver Crisps -->
             <div class="product-card">
                 <h3>100% Grass-Fed 'Super Spice' Beef Liver Crisps</h3>
-                <div class="image-slider" id="sliderReg" data-index="1">
+                <div class="image-slider" id="sliderLiver" data-index="1">
                 <button class="arrow left">&#10094;</button>
                 <img src="images/4ozCrispsFront.jpg" 
                          data-alt-src="images/4ozCrispsBack.jpg" 
@@ -94,9 +94,7 @@
                     <button class="arrow right">&#10095;</button>
                 </div>
                 <select id="selectGrass" class="product-select">
-                    <option data-price="26" data-link="https://pay.zaprite.com/pl_HPOj74qYDj" data-front="images/16oz_grassfed_front.jpg" data-back="images/16oz_grassfed_back.jpg">8 oz</option>
                     <option selected data-price="41" data-link="https://pay.zaprite.com/pl_2qyFeeGMIx" data-front="images/16oz_grassfed_front.jpg" data-back="images/16oz_grassfed_back.jpg">16 oz</option>
-                    <!-- <option data-price="60" data-link="#" data-front="images/16oz_grassfed_front.jpg" data-back="images/16oz_grassfed_back.jpg">32 oz</option> -->
                 </select>
                 <a href="https://pay.zaprite.com/pl_2qyFeeGMIx" target="_blank" rel="noopener noreferrer" class="buy-button" id="buyButtonGrass">Buy Now</a>
             </div>
@@ -239,10 +237,9 @@
             {
                 selectId: 'selectLiver',
                 buttonId: 'buyButtonLiver',
+                imageSliderId: 'sliderLiver',
                 options: [
-                    { size: '1-pack', price: 26, front: 'images/4ozCrispsFront.jpg', back: 'images/4ozCrispsBack.jpg' },
-                    { size: '3-pack', price: 55 },
-                    { size: '6-pack', price: 110 }
+                    { size: '1-pack', price: 26, front: 'images/4ozCrispsFront.jpg', back: 'images/4ozCrispsBack.jpg' }
                 ]
             },
             {
@@ -250,9 +247,7 @@
                 buttonId: 'buyButtonGrass',
                 imageSliderId: 'sliderGrass',
                 options: [
-                    { size: '8 oz', price: 26, front: 'images/16oz_grassfed_front.jpg', back: 'images/16oz_grassfed_back.jpg' },
-                    { size: '16 oz', price: 41, front: 'images/16oz_grassfed_front.jpg', back: 'images/16oz_grassfed_back.jpg' },
-                    { size: '32 oz', price: 60, front: 'images/16oz_grassfed_front.jpg', back: 'images/16oz_grassfed_back.jpg' }
+                    { size: '16 oz', price: 41, front: 'images/16oz_grassfed_front.jpg', back: 'images/16oz_grassfed_back.jpg' }
                 ]
             }
         ];
@@ -369,12 +364,16 @@
         function preloadImages() {
             const imageUrls = [
                 ...chartImages,
+                'images/8ozRegFront.jpg',
+                'images/8ozRegBack.jpg',
+                'images/16ozRegFront.jpg',
+                'images/16ozRegBack.jpg',
+                'images/32ozRegFront.jpg',
+                'images/32ozRegBack.jpg',
+                'images/4ozCrispsFront.jpg',
+                'images/4ozCrispsBack.jpg',
                 'images/16oz_grassfed_front.jpg',
-                'images/16oz_grassfed_back.jpg',
-                'images/16oz_regular_front.jpg',
-                'images/16oz_regular_back.jpg',
-                'images/32oz_regular_front.jpg',
-                'images/32oz_regular_back.jpg'
+                'images/16oz_grassfed_back.jpg'
             ];
 
             imageUrls.forEach(url => {
