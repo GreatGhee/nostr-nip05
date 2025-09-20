@@ -17,7 +17,7 @@ const products = [
         buttonId: 'buyButtonLiver',
         imageSliderId: 'sliderLiver',
         options: [
-            { size: '1-pack', price: 26, front: 'images/4ozCrispsFront.jpg', back: 'images/4ozCrispsBack.jpg' }
+            { size: '1-pack (3 oz)', price: 26, front: 'images/4ozCrispsFront.jpg', back: 'images/4ozCrispsBack.jpg' }
             { size: '3-pack', price: 70, front: 'images/4ozCrispsFront.jpg', back: 'images/4ozCrispsBack.jpg' }
             { size: '5-pack', price: 110, front: 'images/4ozCrispsFront.jpg', back: 'images/4ozCrispsBack.jpg' }
         ]
