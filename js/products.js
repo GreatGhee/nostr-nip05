@@ -27,7 +27,6 @@ const products = [
         buttonId: 'buyButtonGrass',
         imageSliderId: 'sliderGrass',
         options: [
-            { size: '8 oz', price: 25, front: 'images/8ozGrassFront.jpg', back: 'images/8ozGrassBack.jpg' },
             { size: '16 oz', price: 42, front: 'images/16oz_grassfed_front.jpg', back: 'images/16oz_grassfed_back.jpg' }
         ]
     }
