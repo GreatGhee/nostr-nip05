@@ -8,7 +8,7 @@ const products = [
         imageSliderId: 'sliderReg',
         options: [
             { size: '8 oz', price: 18, front: 'images/8ozRegFront.jpg', back: 'images/8ozRegBack.jpg' },
-            { size: '16 oz', price: 27, front: 'images/16ozRegFront.jpg', back: 'images/16ozRegBack.jpg' },
+            { size: '16 oz', price: 29, front: 'images/16ozRegFront.jpg', back: 'images/16ozRegBack.jpg' },
             { size: '32 oz', price: 45, front: 'images/32ozRegFront.jpg', back: 'images/32ozRegBack.jpg' }
         ]
     },
