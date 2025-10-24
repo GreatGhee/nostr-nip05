@@ -7,7 +7,6 @@ const products = [
         buttonId: 'buyButtonReg',
         imageSliderId: 'sliderReg',
         options: [
-            { size: '16 oz', price: 29, front: 'images/16ozRegFront.jpg', back: 'images/16ozRegBack.jpg' },
             { size: '32 oz', price: 45, front: 'images/32ozRegFront.jpg', back: 'images/32ozRegBack.jpg' }
         ]
     },
