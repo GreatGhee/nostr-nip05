@@ -7,7 +7,9 @@ const products = [
         buttonId: 'buyButtonReg',
         imageSliderId: 'sliderReg',
         options: [
-            { size: '32 oz', price: 45, front: 'images/32ozRegFront.jpg', back: 'images/32ozRegBack.jpg' }
+            { size: '2-PACK', price: 45, front: 'images/IMG_5929.jpeg', back: 'images/IMG_5928.jpeg' },
+            { size: '3-PACK', price: 60, front: 'images/IMG_5929.jpeg', back: 'images/IMG_5928.jpeg' },
+            { size: '6-PACK', price: 112, front: 'images/IMG_5929.jpeg', back: 'images/IMG_5928.jpeg' }
         ]
     },
     {
