@@ -8,8 +8,8 @@ const products = [
         imageSliderId: 'sliderReg',
         options: [
             { size: '2-PACK', price: 55, front: 'images/IMG_5929.jpeg', back: 'images/IMG_5928.jpeg' },
-            { size: '3-PACK', price: 71, front: 'images/IMG_5929.jpeg', back: 'images/IMG_5928.jpeg' },
-            { size: '6-PACK', price: 123, front: 'images/IMG_5929.jpeg', back: 'images/IMG_5928.jpeg' }
+            { size: '3-PACK', price: 77, front: 'images/IMG_5929.jpeg', back: 'images/IMG_5928.jpeg' },
+            { size: '6-PACK', price: 153, front: 'images/IMG_5929.jpeg', back: 'images/IMG_5928.jpeg' }
         ]
     },
     {
